@@ -18,6 +18,15 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
+    public void deleteStudent(Long studentId) {
+
+        boolean exists = studentRepository.existsById(studentId);
+        if (!exists){
+            throw new IllegalStateException("student with id" + studentId + "does not exists");
+        }
+        studentRepository.deleteById(studentId);
+    }
+
     public List<Student> getStudents(){
         return studentRepository.findAll();
     }
