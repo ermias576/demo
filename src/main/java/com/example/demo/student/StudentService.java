@@ -3,6 +3,7 @@ package com.example.demo.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -25,6 +26,10 @@ public class StudentService {
             throw new IllegalStateException("student with id" + studentId + "does not exists");
         }
         studentRepository.deleteById(studentId);
+    }
+
+    public void updateStudent(){
+
     }
 
     public List<Student> getStudents(){
